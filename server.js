@@ -4,24 +4,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const app = express();
-const allowedOrigins = [
-  'https://exam-app-frontend-tau.vercel.app/',       // Your Vercel frontend domain
-  'http://localhost:3000'                   // Optional: local dev origin
-];
-
-app.use(cors({
-  origin: function(origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('CORS not allowed'));
-    }
-  },
-  methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
-
-app.options('*', cors()); // enable pre‑flight requests
+app.use(cors());
 app.use(express.json());
 
 // Routes
@@ -49,4 +32,6 @@ const startServer = async () => {
 };
 
 startServer();
+
+
 
