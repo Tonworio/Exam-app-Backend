@@ -4,7 +4,14 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const app = express();
-app.use(cors({ origin: ['https://exam-app-frontend-tau.vercel.app', 'https://exam-app-frontend-1lf3d41e3-tonworios-projects.vercel.app'] }))
+app.use(cors({
+  origin: [
+    'https://exam-app-frontend-tau.vercel.app',
+    'https://exam-app-frontend-1lf3d41e3-tonworios-projects.vercel.app',
+    'https://exam-app-frontend-6a0xez3hi-tonworios-projects.vercel.app' 
+  ]
+}));
+
 
 app.use(express.json());
 
@@ -33,6 +40,7 @@ const startServer = async () => {
 };
 
 startServer();
+
 
 
 
